@@ -10,8 +10,8 @@ const config = {
 	// for more information about preprocessors
 	preprocess: preprocess({
 		scss: {
-			prependData: `@import './src/lib/scss/_variables.scss';`
-		}
+			prependData: `@import './src/lib/scss/_variables.scss';`,
+		},
 	}),
 	kit: {
 		// Adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
@@ -22,9 +22,9 @@ const config = {
 			assets: 'build',
 			fallback: undefined,
 			precompress: false,
-			strict: true
-		})
-	}
+			strict: true,
+		}),
+	},
 };
 
 export default config;
