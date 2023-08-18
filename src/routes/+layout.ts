@@ -4,4 +4,4 @@ export const prerender = true;
 /**
  * Import global styles.
  */
-import '$lib/scss/app.scss'
+import '$lib/scss/app.scss';

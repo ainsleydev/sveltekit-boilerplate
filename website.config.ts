@@ -1,4 +1,4 @@
 export const config = {
-    apiKey: 'your-api-key',
-    apiUrl: 'https://api.example.com',
-}
+	apiKey: 'your-api-key',
+	apiUrl: 'https://api.example.com'
+};
