@@ -42,5 +42,8 @@
 			"prettier --plugin-search-dir . --write ."
 		],
 		"*.{js,ts,svelte}": "eslint"
+	},
+	"dependencies": {
+		"normalize.css": "^8.0.1"
 	}
 }
