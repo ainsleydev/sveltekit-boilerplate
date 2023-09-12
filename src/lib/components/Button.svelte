@@ -9,6 +9,16 @@
 	export let classes = '';
 	export let loading = false;
 	export let href = '';
+
+	// // eslint-disable-next-line no-undef
+	// type Element = $$Generic<'button' | 'a'>;
+	//
+	// // eslint-disable-next-line no-undef
+	// type $$Props = svelteHTML.IntrinsicElements[Element] & {
+	// 	element: Element;
+	// };
+	//
+	// export let element: Element;
 </script>
 
 {#if href}
