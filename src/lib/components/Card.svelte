@@ -24,4 +24,12 @@
 </div>
 
 <style lang="scss">
+	.card {
+		$self: &;
+		position: relative;
+		display: block;
+		text-decoration: none;
+		margin-bottom: 3.75rem;
+		user-select: none;
+	}
 </style>
