@@ -10,7 +10,7 @@ const config = {
 	// for more information about preprocessors
 	preprocess: preprocess({
 		scss: {
-			prependData: `@import './src/lib/scss/_variables.scss';`,
+			prependData: `@import './src/lib/scss/abstracts/_variables.scss';`,
 		},
 	}),
 	kit: {

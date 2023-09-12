@@ -1,14 +1,23 @@
-<!-- =====================
-    Button
-    ===================== -->
-<script>
+<!---
+	@component
+
+	## Hello there
+
+
+--->
+<script lang="ts">
 	export let classes = '';
-	export let text = '';
+	export let loading = false;
+	export let href = '';
 </script>
 
-<button class="btn {classes}" {...$$restProps}>
-	{text}
-</button>
+{#if href}
+	<button class="btn {classes} {loading ? 'btn-loading' : ''} " {...$$restProps}>
+		<slot />
+	</button>
+{:else}
+	<button />
+{/if}
 
 <style lang="scss">
 	$button-padding: 14px 26px;

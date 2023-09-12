@@ -3,6 +3,7 @@
     ===================== -->
 <script>
 	import Button from '$lib/components/Button.svelte';
+	import Section from '$lib/components/Section/Section.svelte';
 </script>
 
 <svelte:head>
@@ -10,7 +11,6 @@
 	<meta name="description" content="About this app" />
 </svelte:head>
 
-<section class="section">
-	<h1>Home</h1>
-	<Button classes="custom-class" text="Click me" aria-label="Custom Button" />
-</section>
+<Section padding={true}>
+	<Button classes="custom-class" loading={false} aria-label="Custom Button">Click Me</Button>
+</Section>
