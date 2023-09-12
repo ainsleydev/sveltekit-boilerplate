@@ -31,7 +31,6 @@
 
 	section {
 		position: relative;
-		background: yellow;
 	}
 
 	.padding {

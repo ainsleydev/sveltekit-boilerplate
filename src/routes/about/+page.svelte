@@ -1,6 +1,8 @@
 <script>
-	import Button from '$lib/components/Button.svelte';
-	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+	import Section from '$lib/components/Section.svelte';
+	import Alert from '$lib/components/Alert.svelte';
+	import Accordion from '$lib/components/Accordion/Accordion.svelte';
+	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 </script>
 
 <svelte:head>
@@ -8,10 +10,9 @@
 	<meta name="description" content="About this app" />
 </svelte:head>
 
-<div class="test">
-	<h2>About Page</h2>
-	<Button />
-	<Breadcrumbs />
-</div>
-
-<p>This is the about page.</p>
+<Section size="medium" padding>
+	<Accordion>
+		<AccordionItem title="I'm a title">Test 1</AccordionItem>
+		<AccordionItem>Test 2</AccordionItem>
+	</Accordion>
+</Section>
