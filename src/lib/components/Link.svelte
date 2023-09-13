@@ -1,11 +1,16 @@
 <script lang="ts">
-	import { error } from '@sveltejs/kit';
-
-	export let url = '';
-	// export let title = '';
-
-	// const isExternalURL = (url) => new URL(url).origin !== location.origin;
-	// const test = false;
+	// import { page } from '$app/stores';
+	//
+	export let href = '';
+	//
+	// const isExternalURL = (url: string): boolean => {
+	// 	if (url === '') {
+	// 		return false;
+	// 	}
+	// 	return new URL(url).origin !== new URL($page.url).origin;
+	// };
+	//
+	// console.log(isExternalURL(href));
 
 	// if (title === '') {
 	//     throw error(404, {
@@ -30,6 +35,6 @@
 	</Link>
     ```
 -->
-<a href={url} title="">
+<a {href} title="">
 	<slot />
 </a>

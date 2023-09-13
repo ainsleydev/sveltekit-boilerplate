@@ -66,7 +66,7 @@
 					</Collapse>
 				</Group>
 				<!-- Link -->
-				<Link>This is my title</Link>
+				<Link href="/hey">This is my title</Link>
 				<!-- Tags -->
 				<Group>
 					<Tag>Tag Component</Tag>
