@@ -1,8 +1,7 @@
 <script>
 	import Section from '$lib/components/Section.svelte';
-	import Alert from '$lib/components/Alert.svelte';
-	import Accordion from '$lib/components/Accordion/Accordion.svelte';
-	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
+	import Accordion from '$lib/components/Collapse/Collapse.svelte';
+	import AccordionItem from '$lib/components/Collapse/CollapseItem.svelte';
 </script>
 
 <svelte:head>
@@ -11,8 +10,8 @@
 </svelte:head>
 
 <Section size="medium" padding>
-	<Accordion>
-		<AccordionItem title="I'm a title">Test 1</AccordionItem>
-		<AccordionItem>Test 2</AccordionItem>
+	<Accordion accordion={false} open={true}>
+		<AccordionItem id="0" title="I'm a title">Test 1</AccordionItem>
+		<AccordionItem id="1">Test 2</AccordionItem>
 	</Accordion>
 </Section>
