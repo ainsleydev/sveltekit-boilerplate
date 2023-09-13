@@ -29,7 +29,6 @@
 /* ====================
     Grid
     ==================== */
-@import 'grid/grid';
 @import 'grid/flex';
 @import 'grid/order';
 @import 'grid/display';
@@ -39,12 +38,3 @@
     ==================== */
 @import 'util/colours';
 @import 'util/spacing';
-
-/* ====================
-    Layout
-    ==================== */
-@import 'layout/footer';
-@import 'layout/form';
-@import 'layout/header';
-@import 'layout/hero';
-@import 'layout/nav';

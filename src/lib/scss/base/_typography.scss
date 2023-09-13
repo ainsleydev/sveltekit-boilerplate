@@ -180,28 +180,6 @@ small {
 	line-height: 1.6;
 }
 
-// Fonts
-// =========================================================================
-
-.type {
-	&-serif {
-		font-family: $font-serif;
-		font-style: italic;
-		font-weight: 300;
-		letter-spacing: -2px;
-		line-height: 1;
-	}
-
-	&-code {
-		font-family: $font-code;
-		font-weight: normal;
-	}
-
-	&-weight-normal {
-		font-weight: normal;
-	}
-}
-
 // Properties
 // =========================================================================
 
@@ -209,61 +187,15 @@ strong {
 	font-weight: bold;
 }
 
-// Number
-// =========================================================================
-
-.number {
-	display: block;
-	font-family: 'Times New Roman', serif;
-	font-size: 7.5rem;
-	color: colour('foreground');
-	letter-spacing: -4px;
-	font-style: italic;
-	line-height: 1;
-}
-
-// Mods
-// =========================================================================
-
-.type-uppercase {
-	text-transform: uppercase;
-}
-
-.type-lowercase {
-	text-transform: lowercase;
-}
-
-.type-heading {
-	color: colour('paragraph');
-	font-weight: normal;
-	margin-bottom: $margin;
-
-	@include media-desk {
-		margin-bottom: $margin-large;
-	}
-}
-
 // Selection Color
 // =========================================================================
 
 ::selection {
-	background: $white;
-	color: $black;
+	background: var(--colour-foreground);
+	color: var(--colour-background);
 }
 
 ::-moz-selection {
-	background: $white;
-	color: $black;
-}
-
-.theme-white {
-	::selection {
-		background: $black;
-		color: $white;
-	}
-
-	::-moz-selection {
-		background: $black;
-		color: $white;
-	}
+	background: var(--colour-foreground);
+	color: var(--colour-background);
 }

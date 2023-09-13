@@ -13,24 +13,3 @@
 		}
 	}
 }
-
-// Colour
-// =========================================================================
-
-.colour {
-	&-foreground {
-		color: colour('foreground');
-
-		* {
-			color: colour('foreground');
-		}
-	}
-
-	&-white {
-		color: $white;
-
-		* {
-			color: $white;
-		}
-	}
-}

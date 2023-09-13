@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { slide } from 'svelte/transition';
-	import HomeIcon from '~icons/mdi/home';
+	import Chevron from '~icons/mdi/chevron-down';
 
 	export let id = '';
 	export let title = '';
@@ -9,6 +9,7 @@
 	let isHovered = false;
 	let isFocused = false;
 	let isOpen = false;
+	let active: string | null = null;
 	let isCurrentActive = false;
 
 	// Determines if the collapsible content should be open when
@@ -16,7 +17,7 @@
 	$: isOpen = getContext('open');
 
 	// Obtains the active ID, this will allow
-	let active = getContext('active');
+	$: active = getContext('active');
 	$: isCurrentActive = isOpen ? true : isAccordion ? $active === id : isOpen;
 
 	// Determines if the collapse should open content one at a time
@@ -36,11 +37,13 @@
 <!--
 	@component
 
-	TODO
+	Item of an collapsible component.
 
 	@example
-	```svelte
-	TODO
+    ```svelte
+    <CollapseItem id="2" title="Title 2">
+		Content 2
+	</CollapseItem>
     ```
 -->
 <div class="item">
@@ -56,9 +59,9 @@
 		<span class:item-header-focused={isHovered || isFocused}>
 			{title}
 		</span>
-		<i class="item-icon" class:item-rotate={isCurrentActive}>
-			<HomeIcon />
-		</i>
+		<span class="item-icon" class:item-rotate={isCurrentActive}>
+			<Chevron style="font-size: 1.6rem;" />
+		</span>
 	</button>
 	<!-- Content -->
 	{#if isCurrentActive}
@@ -71,10 +74,9 @@
 <style lang="scss">
 	.item {
 		width: 100%;
-		border-bottom: 1px solid #ccc;
+		border-bottom: 1px solid var(--colour-foreground);
 		background-color: transparent;
-		padding: 2rem 0;
-		color: color('foreground');
+		color: var(--colour-foreground);
 		-webkit-appearance: none;
 		appearance: none;
 
@@ -86,11 +88,11 @@
 			cursor: pointer;
 			border: none;
 			background: none;
-			padding: 0;
+			padding: 1.6rem 0;
 		}
 
 		&-content {
-			padding-top: 1rem;
+			padding-bottom: 1.6rem;
 		}
 
 		&-icon {

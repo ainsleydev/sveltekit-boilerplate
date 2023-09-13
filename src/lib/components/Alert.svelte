@@ -10,7 +10,7 @@
 <!--
 	@component
 
-	Display a contextual feedback to users with actions and merssages.
+	Display a contextual feedback to users with actions and messages.
 
 	@example
 	```svelte

@@ -16,6 +16,28 @@
 	setContext('open', open);
 </script>
 
+<!--
+	@component
+
+	Collapsible component that allows the collapsing of each item.
+
+	The following props are explained below:
+		- **id**: 		 Is required to ensure each item behaves independently from one another.
+		- **accordion**: Determines if an item should be closed if one is expanded.
+		- **open**: 	 Determines if all items are open on render.
+
+	@example
+	```svelte
+	<Collapse accordion>
+		<CollapseItem id="1" title="Title 1">
+			Content 1
+		</CollapseItem>
+		<CollapseItem id="2" title="Title 2">
+			Content 2
+		</CollapseItem>
+	</Collapse>
+    ```
+-->
 <div class="collapse">
 	<slot />
 </div>
@@ -23,6 +45,5 @@
 <style lang="scss">
 	.collapse {
 		position: relative;
-		padding: 1rem;
 	}
 </style>

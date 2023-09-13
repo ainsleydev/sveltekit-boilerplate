@@ -32,6 +32,22 @@
 <style lang="scss">
 	$button-padding: 14px 26px;
 
+	button:global {
+		width: auto;
+		margin: 0;
+		padding: 0;
+		overflow: visible;
+		background: transparent;
+		color: inherit;
+		font: inherit;
+		line-height: normal;
+		user-select: none;
+		cursor: pointer;
+		-webkit-font-smoothing: inherit;
+		-moz-osx-font-smoothing: inherit;
+		-webkit-appearance: none;
+	}
+
 	.btn {
 		$self: &;
 
@@ -40,14 +56,10 @@
 		justify-content: center;
 		background-color: $primary;
 		padding: $button-padding;
-		cursor: pointer;
 		outline: none;
 		font-size: 1rem;
 		font-weight: bold;
 		height: auto;
-		user-select: none;
-		border: none;
-		line-height: 1;
 		color: $white;
 
 		&-loading {

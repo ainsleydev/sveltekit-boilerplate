@@ -1,6 +1,5 @@
 <script lang="ts">
-	export let gaps = true;
-	// export let flex = '';
+	export let noGaps = false;
 </script>
 
 <!--
@@ -10,12 +9,12 @@
 
 	@example
 	```svelte
-	<Grid size="small" padding>
-		Content
-	</Grid>
+	<Row no-gaps>
+		<Column></Column>
+	</Row>
     ```
 -->
-<div class="row" class:no-gaps={gaps} {...$$restProps}>
+<div class="row" class:no-gaps={noGaps} {...$$restProps}>
 	<slot />
 </div>
 
@@ -23,30 +22,32 @@
 	.row {
 		display: flex;
 		flex-wrap: wrap;
-		margin-left: -$gap-width;
-		margin-right: -$gap-width;
+		margin-left: calc(var(--grid-gap-width) * -1);
+		margin-right: calc(var(--grid-gap-width) * -1);
+	}
+
+	:global {
+		.no-gaps {
+			margin-right: 0;
+			margin-left: 0;
+
+			> .col,
+			> [class*='col-'] {
+				padding-right: 0;
+				padding-left: 0;
+			}
+		}
 
 		@include media-mob-down {
 			&-small-gap-mob > [class*='col-'] {
 				&:nth-child(odd) {
-					padding-right: $gap-width / 2;
+					padding-right: calc(var(--grid-gap-width) / 2);
 				}
 
 				&:nth-child(even) {
-					padding-left: $gap-width / 2;
+					padding-left: calc(var(--grid-gap-width) / 2);
 				}
 			}
-		}
-	}
-
-	.no-gaps {
-		margin-right: 0;
-		margin-left: 0;
-
-		> .col,
-		> [class*='col-'] {
-			padding-right: 0;
-			padding-left: 0;
 		}
 	}
 </style>

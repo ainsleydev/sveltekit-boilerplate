@@ -21,11 +21,10 @@
 		width: 100%;
 		margin-right: auto;
 		margin-left: auto;
-		// TODO: Move to global --var, instead of SCSS variable.
-		max-width: $container-max-width;
-		padding: 0 $container-padding-x;
+		max-width: var(--grid-container-width);
+		padding: 0 var(--grid-container-padding);
 
-		@media (min-width: $container-max-width + 100) {
+		@media (min-width: calc(var(--grid-container-width) + 100px)) {
 			padding: 0;
 		}
 	}
