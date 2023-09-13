@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { slide } from 'svelte/transition';
+	import HomeIcon from '~icons/mdi/home';
 
 	export let id = '';
 	export let title = '';
@@ -15,7 +16,7 @@
 	$: isOpen = getContext('open');
 
 	// Obtains the active ID, this will allow
-	const active = getContext('active');
+	let active = getContext('active');
 	$: isCurrentActive = isOpen ? true : isAccordion ? $active === id : isOpen;
 
 	// Determines if the collapse should open content one at a time
@@ -42,55 +43,63 @@
 	TODO
     ```
 -->
-<div class="collapse-item">
+<div class="item">
 	<!-- Header -->
 	<button
-		class="collapse-item-header"
+		class="item-header"
 		on:click={onClick}
 		on:mouseenter={() => (isHovered = true)}
 		on:mouseleave={() => (isHovered = false)}
 		on:focus={() => (isFocused = true)}
 		on:blur={() => (isFocused = false)}
 	>
-		<div class:text-blue-400={isHovered || isFocused}>
-			<span>{title}</span>
-		</div>
-		<div class="accordion-item-icon" class:rotate-180={isCurrentActive}>Icon</div>
+		<span class:item-header-focused={isHovered || isFocused}>
+			{title}
+		</span>
+		<i class="item-icon" class:item-rotate={isCurrentActive}>
+			<HomeIcon />
+		</i>
 	</button>
 	<!-- Content -->
 	{#if isCurrentActive}
-		<div transition:slide>
+		<div class="item-content" transition:slide>
 			<slot />
 		</div>
 	{/if}
 </div>
 
 <style lang="scss">
-	.collapse-item {
+	.item {
+		width: 100%;
 		border-bottom: 1px solid #ccc;
+		background-color: transparent;
+		padding: 2rem 0;
+		color: color('foreground');
+		-webkit-appearance: none;
+		appearance: none;
 
 		&-header {
-			background-color: #f0f0f0;
-			padding: 1rem;
+			width: 100%;
 			display: flex;
 			justify-content: space-between;
-			cursor: pointer;
 			align-items: center;
-			border-bottom: 1px solid #ccc;
+			cursor: pointer;
+			border: none;
+			background: none;
+			padding: 0;
 		}
 
-		//&-icon {
-		//	font-size: 20px;
-		//	transition: transform 0.3s ease;
-		//}
-		//
-		//&-content {
-		//	padding: 1rem;
-		//	border-bottom: 1px solid #ccc;
-		//}
-		//
-		//&.rotate-180 {
-		//	transform: rotate(180deg);
-		//}
+		&-content {
+			padding-top: 1rem;
+		}
+
+		&-icon {
+			transition: transform 300ms ease;
+			will-change: transform;
+		}
+
+		&-rotate {
+			transform: rotate(180deg);
+		}
 	}
 </style>

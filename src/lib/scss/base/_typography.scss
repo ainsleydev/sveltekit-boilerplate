@@ -28,10 +28,6 @@ body {
 	}
 }
 
-main {
-	font-size: $text-paragraph-size;
-}
-
 h1,
 h2,
 h3,
@@ -64,27 +60,13 @@ h5 {
 @mixin h1 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 36px, 68px);
 	margin-bottom: 1.8rem;
-	line-height: 1.03;
+	line-height: 1;
 	letter-spacing: $text-letter-spacing;
-
-	.type-serif {
-		@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 44px, 80px);
-
-		&.small-mob {
-			@include media-tab-down {
-				@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 47px, 80px);
-			}
-		}
-	}
 }
 
 h1,
 .heading-1 {
 	@include h1;
-
-	&-small {
-		@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 40px, 60px);
-	}
 }
 
 @mixin h2 {
@@ -109,16 +91,12 @@ h2,
 h3,
 .heading-3 {
 	@include h3;
-
-	&.big-line-height {
-		line-height: 1.6;
-	}
 }
 
 @mixin h4 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 21px, 29px);
 	margin-bottom: 1rem;
-	line-height: 1.55;
+	line-height: 1.5;
 	letter-spacing: $text-letter-spacing;
 }
 
@@ -130,7 +108,7 @@ h4,
 @mixin h5 {
 	@include fluid-type($text-fluid-start-size, $text-fluid-end-size, 19px, 21.5px);
 	margin-bottom: 0.9rem;
-	line-height: 1.36;
+	line-height: 1.3;
 	letter-spacing: $text-letter-spacing;
 }
 

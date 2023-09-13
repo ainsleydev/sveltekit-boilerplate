@@ -23,8 +23,6 @@
 <style lang="scss">
 	.collapse {
 		position: relative;
-		//display: flex;
-		//flex-direction: column;
-		background: red;
+		padding: 1rem;
 	}
 </style>

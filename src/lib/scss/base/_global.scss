@@ -26,27 +26,8 @@ body {
 	-webkit-tap-highlight-color: transparent; // sass-lint:disable-line  no-vendor-prefixes
 }
 
-@include touch {
-	scroll-behavior: smooth;
-
-	* {
-		scroll-behavior: smooth !important;
-	}
-}
-
 body {
-	background-color: $black;
-}
-
-main {
-	flex-grow: 2;
-}
-
-.content-wrapper {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	min-height: 100vh;
+	background-color: $white;
 }
 
 *,
@@ -69,28 +50,10 @@ main {
 	}
 }
 
-// TODO: RESETS
+@include touch {
+	scroll-behavior: smooth;
 
-button {
-	border: none;
-	margin: 0;
-	padding: 0;
-	width: auto;
-	overflow: visible;
-
-	background: transparent;
-
-	/* inherit font & color from ancestor */
-	color: inherit;
-	font: inherit;
-
-	/* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
-	line-height: normal;
-
-	/* Corrects font smoothing for webkit */
-	-webkit-font-smoothing: inherit;
-	-moz-osx-font-smoothing: inherit;
-
-	/* Corrects inability to style clickable `input` types in iOS */
-	-webkit-appearance: none;
+	* {
+		scroll-behavior: smooth !important;
+	}
 }
