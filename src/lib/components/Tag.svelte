@@ -18,7 +18,7 @@
 	.tag {
 		position: relative;
 		display: inline-flex;
-		margin: 0 4px;
+		margin-right: 4px;
 		padding: 2px 10px;
 		background-color: var(--colour-foreground);
 		color: var(--colour-background);
@@ -27,5 +27,9 @@
 		user-select: none;
 		font-weight: 500;
 		white-space: nowrap;
+
+		&:last-child {
+			margin: 0;
+		}
 	}
 </style>

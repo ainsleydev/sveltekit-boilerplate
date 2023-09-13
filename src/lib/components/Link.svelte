@@ -21,13 +21,13 @@
 
 	@example
 	```svelte
-	<Grid size="small" padding>
+	<Link size="small" padding>
 		Content
-	</Grid>
+	</Link>
 
-	<Grid size="medium" margin>
+	<Link size="medium" margin>
 		Content
-	</Grid>
+	</Link>
     ```
 -->
 <a href={url} title="">

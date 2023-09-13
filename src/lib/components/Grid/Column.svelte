@@ -11,33 +11,55 @@
 	</Column>
     ```
 -->
-<div class="col" {...$$restProps}>
+<div class="col-12" {...$$restProps}>
 	<slot />
 </div>
 
 <style lang="scss">
-	%column-props {
+	[class*='col-'] {
 		position: relative;
 		width: 100%;
-		padding-left: var(--grid-gap-width);
-		padding-right: var(--grid-gap-width);
+		padding-left: $gap-width;
+		padding-right: $gap-width;
 	}
 
-	// Loop over each modifier and breakpoint to construct the grid.
-	// For example: $modifier = tab, $breakpoint = 1024px
-	@each $modifier, $breakpoint in $grid-properties {
-		.col#{$modifier}-auto {
-			@extend %column-props;
-		}
+	@include media-mob-down {
+		.col-6 {
+			&:nth-child(odd) {
+				padding-right: calc(var(--grid-gap-width) / 2);
+			}
 
-		@for $i from 1 through $grid-columns {
-			.col#{$modifier}-#{$i} {
-				@extend %column-props;
+			&:nth-child(even) {
+				padding-left: calc(var(--grid-gap-width) / 2);
 			}
 		}
 	}
 
 	@each $modifier, $breakpoint in $grid-properties {
-		@include create-col-classes($modifier, $grid-columns, $breakpoint);
+		@include create-mediaquery($breakpoint) {
+			// Columns
+			.col#{$modifier}-auto {
+				flex: 0 0 auto;
+				width: auto;
+				max-width: 100%;
+			}
+
+			@for $i from 1 through $grid-columns {
+				.col#{$modifier}-#{$i} {
+					width: calc(100 / ($grid-columns / ($i * 1%)));
+				}
+			}
+
+			// Offsets
+			.offset#{$modifier}-0 {
+				margin-left: 0;
+			}
+
+			@for $i from 1 through $grid-columns {
+				.offset#{$modifier}-#{$i} {
+					margin-left: calc(100 / ($grid-columns / ($i * 1%)));
+				}
+			}
+		}
 	}
 </style>

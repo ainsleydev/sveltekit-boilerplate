@@ -5,9 +5,9 @@
 
 	@example
 	```svelte
-	<Grid size="small" padding>
+	<Container size="small" padding>
 		Content
-	</Grid>
+	</Container>
     ```
 -->
 <div class="container">

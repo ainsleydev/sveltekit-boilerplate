@@ -19,7 +19,20 @@ figure {
 }
 
 button {
+	width: auto;
+	margin: 0;
+	padding: 0;
 	border: none;
+	overflow: visible;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	line-height: normal;
+	user-select: none;
+	cursor: pointer;
+	-webkit-font-smoothing: inherit;
+	-moz-osx-font-smoothing: inherit;
+	-webkit-appearance: none;
 }
 
 ul,

@@ -26,28 +26,14 @@
 		margin-right: calc(var(--grid-gap-width) * -1);
 	}
 
-	:global {
-		.no-gaps {
-			margin-right: 0;
-			margin-left: 0;
+	:global(.no-gaps) {
+		margin-right: 0;
+		margin-left: 0;
 
-			> .col,
-			> [class*='col-'] {
-				padding-right: 0;
-				padding-left: 0;
-			}
-		}
-
-		@include media-mob-down {
-			&-small-gap-mob > [class*='col-'] {
-				&:nth-child(odd) {
-					padding-right: calc(var(--grid-gap-width) / 2);
-				}
-
-				&:nth-child(even) {
-					padding-left: calc(var(--grid-gap-width) / 2);
-				}
-			}
+		> .col,
+		> [class*='col-'] {
+			padding-right: 0;
+			padding-left: 0;
 		}
 	}
 </style>

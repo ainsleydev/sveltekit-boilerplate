@@ -1,61 +1,24 @@
-<!---
-	@component
-
-	## Hello there
-
-
---->
 <script lang="ts">
 	export let classes = '';
 	export let loading = false;
 	export let href = '';
-
-	// // eslint-disable-next-line no-undef
-	// type Element = $$Generic<'button' | 'a'>;
-	//
-	// // eslint-disable-next-line no-undef
-	// type $$Props = svelteHTML.IntrinsicElements[Element] & {
-	// 	element: Element;
-	// };
-	//
-	// export let element: Element;
 </script>
 
 {#if href}
-	<button class="btn {classes} {loading ? 'btn-loading' : ''} " {...$$restProps}>
+	<a {href} class="btn {classes} {loading ? 'btn-loading' : ''} " {...$$restProps}>
 		<slot />
-	</button>
+	</a>
 {:else}
 	<button />
 {/if}
 
 <style lang="scss">
-	$button-padding: 14px 26px;
-
-	button:global {
-		width: auto;
-		margin: 0;
-		padding: 0;
-		overflow: visible;
-		background: transparent;
-		color: inherit;
-		font: inherit;
-		line-height: normal;
-		user-select: none;
-		cursor: pointer;
-		-webkit-font-smoothing: inherit;
-		-moz-osx-font-smoothing: inherit;
-		-webkit-appearance: none;
-	}
-
 	.btn {
-		$self: &;
-
 		position: relative;
 		display: inline-flex;
 		justify-content: center;
 		background-color: $primary;
-		padding: $button-padding;
+		padding: 14px 26px;
 		outline: none;
 		font-size: 1rem;
 		font-weight: bold;

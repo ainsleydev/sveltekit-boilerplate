@@ -38,10 +38,10 @@ $text-letter-spacing: -1px;
 	// Grid
 	// ==========================================================================
 
-	--grid-columns: 12;
-	--grid-gap-width: 15px;
+	--grid-columns: #{$grid-columns};
+	--grid-gap-width: #{$gap-width};
 	--grid-container-width: 1600px;
-	--grid-container-padding: 7w;
+	--grid-container-padding: 7vw;
 
 	// Breakpoints
 	--grid-breakpoint-mob: 568;

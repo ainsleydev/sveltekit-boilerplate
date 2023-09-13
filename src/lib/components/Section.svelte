@@ -11,16 +11,20 @@
 
 	@example
 	```svelte
-	<Grid size="small" padding>
+	<Section size="small" padding>
 		Content
-	</Grid>
+	</Section>
 
-	<Grid size="medium" margin>
+	<Section size="medium" margin>
 		Content
-	</Grid>
+	</Section>
     ```
 -->
-<section class={size} class:padding class:margin>
+<section
+	class="section section-size={size}"
+	class:section-padding={padding}
+	class:section-margin={margin}
+>
 	<slot />
 </section>
 
@@ -29,31 +33,32 @@
 	$medium: clamp(80px, 20vw, 200px);
 	$large: clamp(120px, 30vw, 240px);
 
-	section {
+	.section {
+		$self: &;
 		position: relative;
-	}
 
-	.padding {
-		padding: $medium 0;
+		&-padding {
+			padding: $medium 0;
 
-		&.small {
-			padding: $small 0;
+			&#{$self}-small {
+				padding: $small 0;
+			}
+
+			&#{$self}-large {
+				padding: $large 0;
+			}
 		}
 
-		&.large {
-			padding: $large 0;
-		}
-	}
+		&-margin {
+			margin: $medium 0;
 
-	.margin {
-		margin: $medium 0;
+			&#{$self}-small {
+				margin: $small 0;
+			}
 
-		&.small {
-			margin: $small 0;
-		}
-
-		&.large {
-			margin: $large 0;
+			&#{$self}-large {
+				margin: $large 0;
+			}
 		}
 	}
 </style>

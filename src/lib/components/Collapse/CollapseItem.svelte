@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { slide } from 'svelte/transition';
-	import Chevron from '~icons/mdi/chevron-down';
+	import IconChevron from '~icons/mdi/chevron-down';
 
 	export let id = '';
-	export let title = '';
 
 	let isHovered = false;
 	let isFocused = false;
@@ -38,41 +37,51 @@
 	@component
 
 	Item of an collapsible component.
+	Note that the ID has to be unique in order for the component to render correctly.
 
 	@example
     ```svelte
-    <CollapseItem id="2" title="Title 2">
-		Content 2
+    <CollapseItem id="1">
+		<h4 slot="title">Title 1</h4>
+		Content
+		Content
 	</CollapseItem>
     ```
 -->
-<div class="item">
+<div class="collapse-item">
 	<!-- Header -->
 	<button
-		class="item-header"
+		class="collapse-item-header"
 		on:click={onClick}
 		on:mouseenter={() => (isHovered = true)}
 		on:mouseleave={() => (isHovered = false)}
 		on:focus={() => (isFocused = true)}
 		on:blur={() => (isFocused = false)}
 	>
-		<span class:item-header-focused={isHovered || isFocused}>
-			{title}
+		<span
+			class="collapse-item-title"
+			class:collapse-item-header-focused={isHovered || isFocused}
+		>
+			<slot name="title" />
 		</span>
-		<span class="item-icon" class:item-rotate={isCurrentActive}>
-			<Chevron style="font-size: 1.6rem;" />
+		<span class="collapse-item-icon" class:collapse-item-rotate={isCurrentActive}>
+			<IconChevron style="font-size: 1.6rem;" />
 		</span>
 	</button>
 	<!-- Content -->
 	{#if isCurrentActive}
-		<div class="item-content" transition:slide>
+		<div class="collapse-item-content" transition:slide>
 			<slot />
 		</div>
 	{/if}
 </div>
 
 <style lang="scss">
-	.item {
+	.collapse-item-title :global(*) {
+		margin-bottom: 0;
+	}
+
+	.collapse-item {
 		width: 100%;
 		border-bottom: 1px solid var(--colour-foreground);
 		background-color: transparent;

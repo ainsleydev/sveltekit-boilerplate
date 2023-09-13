@@ -21,7 +21,7 @@
 
 	Collapsible component that allows the collapsing of each item.
 
-	The following props are explained below:
+	The components props are explained below:
 		- **id**: 		 Is required to ensure each item behaves independently from one another.
 		- **accordion**: Determines if an item should be closed if one is expanded.
 		- **open**: 	 Determines if all items are open on render.
