@@ -1,11 +1,12 @@
 <script lang="ts">
 </script>
 
-<div class="tag">
+<table>
 	<slot />
-</div>
+</table>
 
 <style lang="scss">
-	.table {
+	:global(table) {
+		background: red;
 	}
 </style>

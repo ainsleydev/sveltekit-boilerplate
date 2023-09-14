@@ -1,18 +1,20 @@
-<!-- =====================
-    Card
-    ===================== -->
 <script lang="ts">
-	export let image = null;
 	export let title = '';
 	export let text = '';
 </script>
 
+<!--
+	@component
+
+	Theme/website specific card layout.
+	TODO: Cards are very unique to each client, and therefore only resets have been applied.
+
+	@example
+	```svelte
+
+    ```
+-->
 <div class="card">
-	<!-- Image -->
-	<picture class="card-image">
-		{image}
-	</picture>
-	<!-- Body -->
 	<div class="card-body">
 		<div class="card-title">
 			{title}

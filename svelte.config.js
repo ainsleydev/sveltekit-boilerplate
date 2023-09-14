@@ -14,6 +14,7 @@ const config = {
 			@import './src/lib/scss/abstracts/_variables.scss';
 			@import './src/lib/scss/abstracts/_mixins.scss';`,
 		},
+		preserve: ['ld+json'],
 	}),
 	kit: {
 		// Adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.

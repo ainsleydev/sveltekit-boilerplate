@@ -14,15 +14,6 @@ $grid-breakpoint-desk: 1024;
 $grid-breakpoint-desk-large: 1408;
 $grid-breakpoint-hd: 1600;
 
-// Spacing
-// ==========================================================================
-
-$margin: 1.8rem;
-$margin-tiny: 0.6rem;
-$margin-small: 1rem;
-$margin-large: 3rem;
-$margin-title: clamp(50px, 10vw, 100px);
-
 // Text
 // ==========================================================================
 
@@ -43,7 +34,6 @@ $text-letter-spacing: -1px;
 	--grid-container-width: 1600px;
 	--grid-container-padding: 7vw;
 
-	// Breakpoints
 	--grid-breakpoint-mob: 568;
 	--grid-breakpoint-tab: 768;
 	--grid-breakpoint-desk: 1024;
@@ -64,6 +54,14 @@ $text-letter-spacing: -1px;
 
 	--font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
 		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+	// Spacing
+	// ==========================================================================
+
+	--spacing-default: 1.8rem;
+	--spacing-tiny: 0.6rem;
+	--spacing-small: 1rem;
+	--spacing-large: 3rem;
 
 	// Styling
 	// ==========================================================================

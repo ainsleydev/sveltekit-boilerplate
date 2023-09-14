@@ -6,7 +6,7 @@
 	@example
 	```svelte
 	<Container size="small" padding>
-		Content
+		<Row></Row>
 	</Container>
     ```
 -->

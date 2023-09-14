@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 
+	export let separator = '/';
+
 	let crumbs: Array<{
 		label: string;
 		href: string;
@@ -36,6 +38,8 @@
 	@example
 	```svelte
 	<Breadcrumbs></Breadcrumbs>
+
+	<Breadcrumbs separator="|"></Breadcrumbs>
     ```
 -->
 <nav class="breadcrumbs" aria-label="breadcrumb">
@@ -47,9 +51,12 @@
 				itemscope
 				itemtype="https://schema.org/ListItem"
 			>
-				<a href={c.href} class:active={c.active} itemprop="item">
+				<a class="breadcrumbs-link" href={c.href} class:active={c.active} itemprop="item">
 					<span itemprop="name">
 						{c.label}
+					</span>
+					<span class="breadcrumbs-separator">
+						{separator}
 					</span>
 				</a>
 				<meta itemprop="position" content={(i + 1).toString()} />
@@ -60,6 +67,7 @@
 
 <style lang="scss">
 	.breadcrumbs {
+		$self: &;
 		position: relative;
 		overflow: clip;
 
@@ -71,7 +79,8 @@
 			width: 100%;
 			display: flex;
 			flex-wrap: nowrap;
-			margin-bottom: 0;
+			margin: 0;
+			padding: 0;
 			overflow-x: scroll;
 		}
 
@@ -80,24 +89,26 @@
 			align-items: center;
 			padding: 6px 0;
 
-			&:not(:first-child)::before {
-				content: '|';
-				display: inline-block;
-				color: $primary;
-				margin-left: 10px;
-				margin-right: 10px;
-			}
-
 			&:first-child {
 				margin-left: 0;
+			}
+
+			&:last-child #{$self}-separator {
+				display: none;
 			}
 		}
 
 		&-link {
-			color: $white;
 			white-space: nowrap;
 			font-size: 1rem;
 			font-weight: 500;
+		}
+
+		&-separator {
+			display: inline-block;
+			color: var(--colour-primary);
+			margin-left: 10px;
+			margin-right: 10px;
 		}
 
 		@include media-tab {

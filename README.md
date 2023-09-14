@@ -1,38 +1,60 @@
-# create-svelte
+<p align="center">
+    <a href="https://ainsley.dev">
+        <img src="./res/symbol.png" height="86" style="margin-right: 20px;">
+        <img src="./res/svelte.png" height="82">
+        <h3 align="center">ainsley.dev</h3>
+    </a>
+</p>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+<div align="center">
 
-## Creating a project
+[![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=website&style=plastic)](https://sveltekit-boilerplate.ainsley.dev)
+[![Twitter Handle](https://img.shields.io/twitter/follow/ainsleydev)](https://twitter.com/ainsleydev)
 
-If you're seeing this, you've probably already done this step. Congrats!
+</div>
 
-```bash
-# create a new project in the current directory
+## SvelteKit Boilerplate
 
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Everything you need to create new SvelteKit websites and applications in less time than ever before. This comprehensive
+library contains skeleton components and tools to kick-start web builds.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've created a project and installed dependencies with `pnpm install`, start a
+development server:
 
 ```bash
-npm run dev
+pnpm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# Or start the server and open the app in a new browser tab
+pnpm run dev -- --open
+```
+
+## Components
+
+A library of skeleton components sre included within the boilerplate located in:
+
+```
+/src/lib/components
 ```
 
 ## Building
 
-To create a production version of your app:
+To create a production version of the website.
 
 ```bash
-npm run build
+pnpm run build
 ```
 
-You can preview the production build with `npm run preview`.
+## TODOs:
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+-   Pages
+
+## Open Source
+
+ainsley.dev permits the use of any HTML, SCSS and Javascript found within the repository for use with external projects.
+
+## Trademark
+
+ainsley.dev and the ainsley.dev logo are either registered trademarks or trademarks of ainsley.dev LTD in the United
+Kingdom and/or other countries. All other trademarks are the property of their respective owners.

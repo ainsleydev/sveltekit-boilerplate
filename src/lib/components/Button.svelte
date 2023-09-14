@@ -1,29 +1,66 @@
 <script lang="ts">
-	export let classes = '';
-	export let loading = false;
 	export let href = '';
+	export let loading = false;
+	export let label: string;
 </script>
 
-{#if href}
-	<a {href} class="btn {classes} {loading ? 'btn-loading' : ''} " {...$$restProps}>
-		<slot />
-	</a>
-{:else}
-	<button />
-{/if}
+<!--
+	@component
+
+	A button or link element.
+	If the href prop is passed, a link will be rendered instead of a button.
+
+	@example
+    ```svelte
+    <Button label="Aria Label" --colour="var(--colour-primary)" --background="var(--colour-primary)">
+    	Content
+    </Button>
+
+    <Button href="https://ainsley.dev" label="Aria Label">
+    	Content
+    </Button>
+    ```
+-->
+<div class="btn-wrapper">
+	{#if href}
+		<a
+			{href}
+			class="btn"
+			role="button"
+			aria-label={label}
+			class:btn-loading={loading}
+			{...$$restProps}
+		>
+			<slot />
+		</a>
+	{:else}
+		<button class="btn" aria-label={label} class:btn-loading={loading} {...$$restProps}>
+			<slot />
+		</button>
+	{/if}
+</div>
 
 <style lang="scss">
 	.btn {
 		position: relative;
 		display: inline-flex;
 		justify-content: center;
-		background-color: $primary;
+		color: var(--colour, var(--colour-background));
+		background-color: (--background, var(--colour-foreground));
 		padding: 14px 26px;
 		outline: none;
 		font-size: 1rem;
 		font-weight: bold;
 		height: auto;
-		color: $white;
+		border-radius: 4px;
+
+		&:hover {
+			background: red;
+		}
+
+		&:active {
+			background: green;
+		}
 
 		&-loading {
 			transition: none;

@@ -3,7 +3,7 @@
 	import { slide } from 'svelte/transition';
 	import IconChevron from '~icons/mdi/chevron-down';
 
-	export let id = '';
+	export let id: string;
 
 	let isHovered = false;
 	let isFocused = false;

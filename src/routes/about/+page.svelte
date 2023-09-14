@@ -10,6 +10,8 @@
 	import Alert from '$lib/components/Alert.svelte';
 	import IconClose from '~icons/mdi/cross';
 	import Link from '$lib/components/Link.svelte';
+	import Button from '$lib/components/Button.svelte';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 </script>
 
 <svelte:head>
@@ -36,6 +38,7 @@
 	<Container>
 		<Row nogaps>
 			<Column class="col-12">
+				<Breadcrumbs />
 				<h2>Components</h2>
 			</Column>
 			<Column class="col-12">
@@ -65,10 +68,16 @@
 						</CollapseItem>
 					</Collapse>
 				</Group>
+			</Column>
+			<!-- Button -->
+			<Column>
+				<Button label="Label">Button</Button>
+			</Column>
+			<Column>
 				<!-- Link -->
-				<Link href="/hey">This is my title</Link>
+				<!--				<Link>This is my title</Link>-->
 				<!-- Tags -->
-				<Group>
+				<Group size="large" bottom style="background: red;">
 					<Tag>Tag Component</Tag>
 				</Group>
 				<!-- Alerts -->

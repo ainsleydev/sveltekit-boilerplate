@@ -4,8 +4,6 @@
 
 	export let dismiss = false;
 
-	const hasSlots = $$props.$$slots;
-
 	let visible = true;
 	const hide = () => (visible = false);
 </script>
