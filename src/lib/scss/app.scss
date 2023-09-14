@@ -25,7 +25,13 @@
 @import 'base/global';
 @import 'base/fonts';
 @import 'base/reset';
-@import 'base/typography';
+
+/* ====================
+    Generic
+    ==================== */
+@import 'generic/typography';
+@import 'generic/colours';
+@import 'generic/spacing';
 
 /* ====================
     Grid
@@ -33,9 +39,3 @@
 @import 'grid/flex';
 @import 'grid/order';
 @import 'grid/display';
-
-/* ====================
-    Util
-    ==================== */
-@import 'util/colours';
-@import 'util/spacing';

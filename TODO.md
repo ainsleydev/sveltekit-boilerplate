@@ -2,6 +2,7 @@
 
 -   Configure error pages
 -   SEO - https://kit.svelte.dev/docs/seo
+-   Sort out colours & other vars.
 
 ## Frameworks
 

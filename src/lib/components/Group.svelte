@@ -35,33 +35,37 @@
 </div>
 
 <style lang="scss">
-	//:global(.group) p:last-of-type {
-	//	margin-bottom: 0;
-	//}
-	//
+	.group :global(p:last-child) {
+		margin-bottom: 0;
+	}
+
 	//.group {
 	//	$self: &;
 	//	margin-bottom: var(--spacing-default);
 	//
-	//	&#{$self}-bottom {
-	//
-	//
-	//		&#{$self}-none {
-	//			margin-bottom: 0 !important;
-	//		}
-	//
-	//		&#{$self}-tiny {
-	//			margin-bottom: var(--spacing-tiny);
-	//		}
-	//
-	//		&#{$self}-small {
-	//			margin-bottom: var(--spacing-small);
-	//		}
-	//
-	//		&#{$self}-large {
-	//			margin-bottom: var(--spacing-large);
-	//		}
+	//	&.group-property-margin &.group-bottom {
+	//		background: pink;
 	//	}
+	//
+	//	//&#{$self}-property-margin &#{$self}-bottom {
+	//	//
+	//	//
+	//	//	&#{$self}-none {
+	//	//		margin-bottom: 0 !important;
+	//	//	}
+	//	//
+	//	//	&#{$self}-tiny {
+	//	//		margin-bottom: var(--spacing-tiny);
+	//	//	}
+	//	//
+	//	//	&#{$self}-small {
+	//	//		margin-bottom: var(--spacing-small);
+	//	//	}
+	//	//
+	//	//	&#{$self}-large {
+	//	//		margin-bottom: var(--spacing-large);
+	//	//	}
+	//	//}
 	//
 	//	&#{$self}-top {
 	//		margin-top: var(--spacing-default);

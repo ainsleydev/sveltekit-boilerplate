@@ -1,13 +1,12 @@
 <script lang="ts">
 	export let title = '';
-	export let text = '';
 </script>
 
 <!--
 	@component
 
-	Theme/website specific card layout.
-	TODO: Cards are very unique to each client, and therefore only resets have been applied.
+	Display flexible and extensible containers with a wide variety of options.
+	TODO: Cards are very unique to each website, and therefore only resets have been applied.
 
 	@example
 	```svelte
@@ -20,7 +19,7 @@
 			{title}
 		</div>
 		<div class="card-text">
-			{text}
+			<slot />
 		</div>
 	</div>
 </div>

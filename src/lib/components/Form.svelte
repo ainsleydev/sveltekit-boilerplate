@@ -4,8 +4,8 @@
 <!--
 	@component
 
-	Theme/website specific form layout.
-	TODO: Forms are very unique to each client, and therefore only resets have been applied.
+	Display layouts for forms with a wide variety of inputs.
+	TODO: Forms are very unique to each website, and therefore only resets have been applied.
 
 	@example
 	```svelte
