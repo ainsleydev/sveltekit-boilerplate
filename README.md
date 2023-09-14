@@ -1,7 +1,9 @@
 <p align="center">
+  <img src="./res/logo.png" height="86">
+</p>
+
+<p align="center">
     <a href="https://ainsley.dev">
-        <img src="./res/symbol.png" height="86" style="margin-right: 20px;">
-        <img src="./res/svelte.png" height="82">
         <h3 align="center">ainsley.dev</h3>
     </a>
 </p>
