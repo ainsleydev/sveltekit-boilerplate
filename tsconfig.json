@@ -13,6 +13,12 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-		"importsNotUsedAsValues": "remove"
+		"importsNotUsedAsValues": "remove",
+		"paths": {
+			"$lib": ["./src/lib"],
+			"$lib/*": ["./src/lib/*"],
+			"$utils": ["./src/utils"],
+			"$utils/*": ["./src/utils/*"]
+		}
 	}
 }

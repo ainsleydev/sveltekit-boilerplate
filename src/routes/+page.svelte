@@ -14,6 +14,8 @@
 	import Alert from '$lib/components/Alert.svelte';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import IconClose from '~icons/mdi/cross';
+	import FormGroup from '$lib/components/Form/FormGroup.svelte';
+	import FormInput from '$lib/components/Form/FormInput.svelte';
 </script>
 
 <svelte:head>
@@ -105,6 +107,24 @@
 						</figure>
 						<p slot="text">Primary Alert</p>
 					</Alert>
+				</Group>
+				<!-- Form -->
+				<Group>
+					<h5>Form Group</h5>
+					<FormGroup label="First Name" id="first-name">
+						<FormInput
+							type="text"
+							placeholder="Enter your first name"
+							autocomplete="given-name"
+						/>
+					</FormGroup>
+					<FormGroup label="Last Name" id="last-name">
+						<FormInput
+							type="text"
+							placeholder="Enter your last name"
+							autocomplete="family-name"
+						/>
+					</FormGroup>
 				</Group>
 			</Column>
 		</Row>
