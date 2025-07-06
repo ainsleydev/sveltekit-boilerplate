@@ -1,13 +1,6 @@
-// _functions.scss
-// Helper functions for the site.
-// ==========================================================================
+@use "sass:math";
 
-// Return Color from Palette
-// ==========================================================================
-
-/// @author Ainsley Clark
-/// @param {String} $key
-/// @return {Colour} - Variable
-@function colour($color-name) {
-	@return var(--colour-#{$color-name});
+@function px-to-rem($value) {
+	$remValue: math.div($value, 16) + rem;
+	@return $remValue;
 }

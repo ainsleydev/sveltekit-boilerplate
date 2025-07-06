@@ -1,0 +1,35 @@
+@use '../abstracts' as a;
+
+:root {
+	// Colours
+	@each $color, $shade-map in a.$colours {
+		@each $shade, $value in $shade-map {
+			--colour-#{$color}-#{$shade}: #{$value};
+		}
+	}
+
+	// Colour Tokens
+	@each $type, $token-map in a.$tokens {
+		@each $token, $value in $token-map {
+			--token-#{$type}-#{$token}: #{$value};
+		}
+	}
+
+	// Type
+	--font: #{a.$font};
+
+	// Font Weights
+	@each $weight, $value in a.$font-weights {
+		--font-weight-#{$weight}: #{$value};
+	}
+
+	// Other Tokens
+	--header-height: #{a.$header-height};
+	--sticky-height: calc(#{a.$header-height} + 20px);
+	--container-padding: 5vw;
+
+	--drop--shadow:  2px 2px 30px rgba(2, 20, 58, 0.08);
+	--icon--shadow:  0px 0px 8px rgba(2, 20, 58, 0.12);
+	--shadow-photo:  18px 15px 52px rgba(0, 0, 0, 0.1), 72px 62px 95px rgba(0, 0, 0, 0.09), 162px 139px 128px rgba(0, 0, 0, 0.05), 289px 247px 152px rgba(0, 0, 0, 0.01), 451px 385px 166px rgba(0, 0, 0, 0);
+	--mark--shadow:  1px 2px 5px rgba(0, 0, 0, 0.1), 4px 8px 9px rgba(0, 0, 0, 0.09), 9px 18px 12px rgba(0, 0, 0, 0.05), 15px 32px 14px rgba(0, 0, 0, 0.01), 24px 50px 15px rgba(0, 0, 0, 0);
+}

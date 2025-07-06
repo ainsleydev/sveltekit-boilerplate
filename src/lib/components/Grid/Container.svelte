@@ -16,16 +16,39 @@
 
 <style lang="scss">
 	.container {
-		position: relative;
-		display: block;
-		width: 100%;
-		margin-right: auto;
-		margin-left: auto;
-		max-width: var(--grid-container-width);
-		padding: 0 var(--grid-container-padding);
+		$self: &;
 
-		@media (min-width: calc(var(--grid-container-width) + 100px)) {
-			padding: 0;
+		--wrapper-padding-inline: var(--container-padding);
+		--wrapper-max-width: 1328px;
+		--breakout-max-width: 1500px;
+		--breakout-size: calc((var(--breakout-max-width) - var(--wrapper-max-width)) / 2);
+
+		display: grid;
+		width: 100%;
+		position: relative;
+		grid-template-columns:
+			[full-width-start] minmax(var(--wrapper-padding-inline), 1fr)
+			[breakout-start] minmax(0, var(--breakout-size))
+			[content-start] min(
+				100% - (var(--wrapper-padding-inline) * 2),
+				var(--wrapper-max-width)
+			)
+			[content-end]
+			minmax(0, var(--breakout-size)) [breakout-end]
+			minmax(var(--wrapper-padding-inline), 1fr) [full-width-end];
+
+		:global(> *) {
+			grid-column: content;
+		}
+
+		:global(> .breakout) {
+			grid-column: breakout;
+		}
+
+		:global(> .full-width) {
+			display: grid;
+			grid-column: full-width;
+			grid-template-columns: inherit;
 		}
 	}
 </style>

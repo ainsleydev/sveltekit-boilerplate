@@ -2,6 +2,7 @@
 	export let href = '';
 	export let loading = false;
 	export let label: string;
+	export let colour: 'primary' | 'secondary' | 'grey' = 'primary'
 </script>
 
 <!--
@@ -21,11 +22,11 @@
     </Button>
     ```
 -->
-<div class="btn-wrapper">
+<div class="btn__wrapper">
 	{#if href}
 		<a
 			{href}
-			class="btn"
+			class="btn btn--colour btn--colour--{colour}"
 			role="button"
 			aria-label={label}
 			class:btn-loading={loading}
@@ -34,35 +35,69 @@
 			<slot />
 		</a>
 	{:else}
-		<button class="btn" aria-label={label} class:btn-loading={loading} {...$$restProps}>
+		<button
+			class="btn btn--colour btn--colour--{colour}"
+			aria-label={label}
+			class:btn--loading={loading}
+			{...$$restProps}
+		>
 			<slot />
 		</button>
 	{/if}
 </div>
 
 <style lang="scss">
+	@use '../scss/abstracts' as a;
+
 	.btn {
+		$self: &;
+
+		--_btn-padding: 14px 28px;
+		--_btn-colour: var(--token-text-negative, #{a.$text-negative});
+		--_btn-background-colour: var(--token-surface-primary, #{a.$surface-primary});
+		--_btn-background-colour-hover: var();
+		--_btn-border-radius: #{a.$border-radius-6};
+		--_btn-hover-colour: var(--token-text-negative, #{a.$text-negative});
+		--_btn-hover-bg-colour: var(--colour-blue-600);
+
 		position: relative;
 		display: inline-flex;
 		justify-content: center;
-		color: var(--colour, var(--colour-background));
-		background-color: (--background, var(--colour-foreground));
-		padding: 14px 26px;
+		align-items: center;
+		border: none;
+		padding: var(--_btn-padding);
+		color: var(--_btn-colour);
+		background-color: var(--_btn-background-colour);
+		border-radius: var(--_btn-border-radius);
 		outline: none;
 		font-size: 1rem;
-		font-weight: bold;
+		font-weight: 600;
 		height: auto;
-		border-radius: 4px;
+		cursor: pointer;
 
 		&:hover {
-			background: red;
+			color: var(--_btn-hover-colour);
+			background-color: var(--_btn-hover-bg-colour);
 		}
 
-		&:active {
-			background: green;
+		&--colour {
+
+			&--secondary {
+				--_btn-colour: var(--token-text-action);
+				--_btn-background-colour: var(--token-surface-secondary);
+				--_btn-hover-colour: var(--token-text-action);
+				--_btn-hover-bg-colour: var(--colour-blue-100);
+			}
+
+			&--grey {
+				--_btn-colour: var(--token-text-body);
+				--_btn-background-colour: var(--token-surface-grey);
+				--_btn-hover-colour: var(--token-text-body);
+				--_btn-hover-bg-colour: var(--colour-grey-100);
+			}
 		}
 
-		&-loading {
+		&--loading {
 			transition: none;
 			pointer-events: none;
 			color: transparent !important;

@@ -1,59 +1,35 @@
-// -----------------------------------------------------------------------------
-// _base.scss
-// This file contains very basic styles to reset document.
-// -----------------------------------------------------------------------------
-
-html {
-	scroll-behavior: initial;
-	box-sizing: border-box;
-}
-
-* {
-	box-sizing: inherit;
-}
-
-html,
-body {
-	width: 100%;
-	height: auto;
-	margin: 0;
-	padding: 0;
-	font-family: var(--font-main);
-	font-size: 1rem;
-	line-height: 1.6;
-	font-kerning: normal;
-	-webkit-font-smoothing: antialiased; // sass-lint:disable-line  no-vendor-prefixes
-	-webkit-tap-highlight-color: transparent; // sass-lint:disable-line  no-vendor-prefixes
-}
-
-body {
-	background-color: var(--colour-background);
-}
-
 *,
 *::before,
 *::after {
 	box-sizing: inherit;
 }
 
-.no-js {
-	.js-hide {
-		display: none !important;
-	}
-
-	.lazy {
-		display: none !important;
-	}
-
-	* {
-		transition: none !important;
-	}
+html {
+	height: 100%;
+	box-sizing: border-box;
+	scroll-padding-top: var(--header-height);
+	overscroll-behavior: none;
+	interpolate-size: allow-keywords;
+	scroll-behavior: auto;
 }
 
-@include touch {
-	scroll-behavior: smooth;
+body {
+	background-color: var(--colour-surface);
+	height: 100%;
+	min-height: 100svh;
+	margin: 0;
+	padding: 0;
+	font-family: var(--font);
+	font-size: 1rem;
+	line-height: 1.6;
+	font-kerning: normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: transparent
+}
 
-	* {
-		scroll-behavior: smooth !important;
-	}
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100svh;
 }

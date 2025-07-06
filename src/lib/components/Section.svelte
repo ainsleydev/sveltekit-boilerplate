@@ -29,35 +29,34 @@
 </section>
 
 <style lang="scss">
-	$small: clamp(40px, 5vw, 140px);
-	$medium: clamp(80px, 20vw, 200px);
-	$large: clamp(120px, 30vw, 240px);
+	@use '../scss/abstracts' as a;
 
 	.section {
 		$self: &;
 		position: relative;
+		overflow-y: clip;
 
 		&-padding {
-			padding: $medium 0;
+			padding-block: a.$section-75;
 
 			&#{$self}-small {
-				padding: $small 0;
+				padding-block: a.$section-50;
 			}
 
 			&#{$self}-large {
-				padding: $large 0;
+				padding-block: a.$section-100;
 			}
 		}
 
 		&-margin {
-			margin: $medium 0;
+			margin-block: a.$section-75;
 
 			&#{$self}-small {
-				margin: $small 0;
+				margin-block: a.$section-75;
 			}
 
 			&#{$self}-large {
-				margin: $large 0;
+				margin-block: a.$section-75;
 			}
 		}
 	}

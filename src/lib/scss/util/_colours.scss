@@ -1,0 +1,12 @@
+@use '../abstracts' as a;
+
+@each $type, $token-map in a.$tokens {
+	@each $token, $value in $token-map {
+		.c-#{$type}-#{$token} {
+			color: #{$value};
+		}
+		.bg-#{$type}-#{$token} {
+			background-color: #{$value};
+		}
+	}
+}

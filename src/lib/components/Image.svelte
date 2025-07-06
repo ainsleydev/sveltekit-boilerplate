@@ -30,6 +30,8 @@
 </picture>
 
 <style lang="scss">
+	@use '../scss/abstracts' as a;
+
 	.image {
 		position: relative;
 		display: block;

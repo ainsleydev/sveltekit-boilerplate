@@ -1,0 +1,52 @@
+@use '../abstracts' as a;
+
+$justify-content-values: (
+	start,
+	end,
+	center,
+	stretch,
+	space-between,
+	space-around,
+	space-evenly
+);
+
+$align-items-values: (
+	start,
+	end,
+	center,
+	stretch,
+	baseline
+);
+
+$align-content-values: (
+	start,
+	end,
+	center,
+	stretch,
+	space-between,
+	space-around
+);
+
+@mixin generate-alignment-classes($property, $values) {
+	@each $val in $values {
+		.#{$property}-#{$val} {
+			#{$property}: #{$val};
+		}
+	}
+
+	@each $bp, $width in a.$breakpoints {
+		@media (min-width: #{$width * 1px}) {
+			@each $val in $values {
+				.#{$property}-#{$val}-#{$bp} {
+
+					#{$property}: #{$val};
+				}
+
+			}
+		}
+	}
+}
+
+@include generate-alignment-classes("justify-content", $justify-content-values);
+@include generate-alignment-classes("align-items", $align-items-values);
+@include generate-alignment-classes("align-content", $align-content-values);

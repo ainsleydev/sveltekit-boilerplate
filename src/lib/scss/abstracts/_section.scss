@@ -1,0 +1,12 @@
+@use 'sass:map';
+@use 'functions' as f;
+
+$section-50: clamp(40px, 8vw, 50px);
+$section-75: clamp(50px, 10vw, 75px);
+$section-100: clamp(70px, 12vw, 100px);
+
+$section: (
+	'50': $section-50,
+	'75': $section-75,
+	'100': $section-100,
+);

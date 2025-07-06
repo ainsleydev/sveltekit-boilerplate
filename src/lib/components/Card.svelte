@@ -25,6 +25,8 @@
 </div>
 
 <style lang="scss">
+	@use '../scss/abstracts' as a;
+
 	.card {
 		$self: &;
 		position: relative;

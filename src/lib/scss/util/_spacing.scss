@@ -1,0 +1,62 @@
+@use 'sass:map';
+@use '../abstracts' as a;
+
+// Margin & Padding
+@each $modifier, $breakpoint in a.$grid-properties {
+	@include a.create-media-query($breakpoint) {
+		@each $size, $value in a.$sizes {
+
+			// Standard properties with no top, left etc.
+			@each $prop, $abbrev in (margin: m, padding: p, gap: g) {
+				.#{$abbrev}#{$modifier}-#{$size} {
+					#{$prop}: $value;
+				}
+			}
+
+			// Margin & padding.
+			@each $prop, $abbrev in (margin: m, padding: p) {
+				.#{$abbrev}t#{$modifier}-#{$size},
+				.#{$abbrev}y#{$modifier}-#{$size} {
+					#{$prop}-top: $value;
+				}
+				.#{$abbrev}r#{$modifier}-#{$size},
+				.#{$abbrev}x#{$modifier}-#{$size} {
+					#{$prop}-right: $value;
+				}
+				.#{$abbrev}b#{$modifier}-#{$size},
+				.#{$abbrev}y#{$modifier}-#{$size} {
+					#{$prop}-bottom: $value;
+				}
+				.#{$abbrev}l#{$modifier}-#{$size},
+				.#{$abbrev}x#{$modifier}-#{$size} {
+					#{$prop}-left: $value;
+				}
+			}
+		}
+	}
+}
+
+// Section Gap
+@each $modifier, $breakpoint in a.$grid-properties {
+	@include a.create-media-query($breakpoint) {
+		@each $size, $value in a.$section {
+			.g#{$modifier}-#{$size} {
+				gap: #{$value};
+			}
+		}
+	}
+}
+
+// Util
+.margin {
+	margin-bottom: a.$size-24;
+
+	&-large {
+		margin-bottom: a.$size-32;
+	}
+
+	ul:last-child,
+	p:last-child {
+		margin-bottom: 0;
+	}
+}

@@ -15,7 +15,7 @@
 
 </div>
 
-## SvelteKit Boilerplate
+# SvelteKit Boilerplate
 
 Everything you need to create new SvelteKit websites and applications in less time than ever before. This comprehensive
 library contains skeleton components and tools to kick-start web builds.
@@ -39,6 +39,8 @@ A library of skeleton components sre included within the boilerplate located in:
 ```
 /src/lib/components
 ```
+
+- Collapse:
 
 ## Building
 

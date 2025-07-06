@@ -19,11 +19,16 @@
 </div>
 
 <style lang="scss">
+	@use '../../scss/abstracts' as a;
+
 	.row {
 		display: flex;
 		flex-wrap: wrap;
-		margin-left: calc(var(--grid-gap-width) * -1);
-		margin-right: calc(var(--grid-gap-width) * -1);
+		margin-inline: -#{a.$grid-gap};
+
+		@include a.mq-max(mob) {
+			margin-inline: -7px;
+		}
 	}
 
 	:global(.no-gaps) {

@@ -1,0 +1,19 @@
+@use '../abstracts' as a;
+
+@each $modifier, $breakpoint in a.$grid-properties {
+	@include a.create-media-query($breakpoint) {
+		.order#{$modifier}-first {
+			order: -1;
+		}
+
+		.order#{$modifier}-last {
+			order: a.$grid-columns + 1;
+		}
+
+		@for $i from 1 through a.$grid-columns {
+			.order#{$modifier}-#{$i} {
+				order: #{$i};
+			}
+		}
+	}
+}

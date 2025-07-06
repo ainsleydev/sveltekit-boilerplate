@@ -1,0 +1,186 @@
+@use 'sass:map';
+
+$colour-base-white: #fff;
+$colour-base-black: #000;
+
+$colour-sea-blue-50: hsl(215, 94%, 94%);
+$colour-sea-blue-100: hsl(215, 97%, 88%);
+$colour-sea-blue-200: hsl(215, 95%, 76%);
+$colour-sea-blue-300: hsl(215, 96%, 64%);
+$colour-sea-blue-400: hsl(215, 95%, 52%);
+$colour-sea-blue-500: hsl(215, 95%, 40%);
+$colour-sea-blue-600: hsl(215, 95%, 32%);
+$colour-sea-blue-700: hsl(215, 95%, 24%);
+$colour-sea-blue-800: hsl(215, 95%, 16%);
+$colour-sea-blue-900: hsl(215, 95%, 8%);
+$colour-sea-blue-950: hsl(213, 100%, 4%);
+
+$colour-navy-50: hsl(221, 91%, 91%);
+$colour-navy-100: hsl(221, 93%, 82%);
+$colour-navy-200: hsl(221, 93%, 65%);
+$colour-navy-300: hsl(221, 93%, 47%);
+$colour-navy-400: hsl(221, 93%, 29%);
+$colour-navy-500: hsl(221, 93%, 12%);
+$colour-navy-600: hsl(221, 91%, 9%);
+$colour-navy-700: hsl(221, 94%, 7%);
+$colour-navy-800: hsl(222, 92%, 5%);
+$colour-navy-900: hsl(222, 100%, 2%);
+$colour-navy-950: hsl(216, 100%, 1%);
+
+$colour-greyscale-50: hsl(180, 3%, 94%);
+$colour-greyscale-100: hsl(220, 5%, 88%);
+$colour-greyscale-200: hsl(220, 5%, 76%);
+$colour-greyscale-300: hsl(220, 5%, 64%);
+$colour-greyscale-400: hsl(220, 5%, 52%);
+$colour-greyscale-500: hsl(216, 5%, 40%);
+$colour-greyscale-600: hsl(218, 5%, 32%);
+$colour-greyscale-700: hsl(210, 5%, 24%);
+$colour-greyscale-800: hsl(225, 5%, 16%);
+$colour-greyscale-900: hsl(210, 5%, 8%);
+$colour-greyscale-950: hsl(240, 5%, 4%);
+
+$colour-lights-50: hsl(180, 20%, 99%);
+$colour-lights-100: hsl(180, 20%, 99%);
+$colour-lights-200: hsl(0, 0%, 98%);
+$colour-lights-300: hsl(180, 5%, 96%);
+$colour-lights-400: hsl(180, 4%, 95%);
+$colour-lights-500: hsl(180, 3%, 94%);
+$colour-lights-600: hsl(180, 3%, 85%);
+$colour-lights-700: hsl(180, 3%, 74%);
+$colour-lights-800: hsl(180, 3%, 62%);
+$colour-lights-900: hsl(180, 3%, 44%);
+$colour-lights-950: hsl(180, 4%, 33%);
+
+$colour-green-50: hsl(154, 62%, 95%);
+$colour-green-100: hsl(155, 65%, 90%);
+$colour-green-200: hsl(154, 65%, 80%);
+$colour-green-300: hsl(154, 65%, 70%);
+$colour-green-400: hsl(154, 64%, 59%);
+$colour-green-500: hsl(154, 64%, 49%);
+$colour-green-600: hsl(154, 64%, 39%);
+$colour-green-700: hsl(154, 65%, 30%);
+$colour-green-800: hsl(154, 65%, 20%);
+$colour-green-900: hsl(155, 65%, 10%);
+$colour-green-950: hsl(154, 62%, 5%);
+
+$colour-yellow-50: hsl(46, 100%, 95%);
+$colour-yellow-100: hsl(45, 100%, 90%);
+$colour-yellow-200: hsl(45, 100%, 81%);
+$colour-yellow-300: hsl(45, 100%, 71%);
+$colour-yellow-400: hsl(45, 100%, 61%);
+$colour-yellow-500: hsl(45, 100%, 51%);
+$colour-yellow-600: hsl(45, 100%, 41%);
+$colour-yellow-700: hsl(45, 100%, 31%);
+$colour-yellow-800: hsl(45, 100%, 21%);
+$colour-yellow-900: hsl(45, 100%, 10%);
+$colour-yellow-950: hsl(46, 100%, 5%);
+
+$colour-red-50: hsl(3, 90%, 96%);
+$colour-red-100: hsl(5, 90%, 92%);
+$colour-red-200: hsl(4, 89%, 83%);
+$colour-red-300: hsl(4, 89%, 75%);
+$colour-red-400: hsl(4, 89%, 67%);
+$colour-red-500: hsl(4, 90%, 58%);
+$colour-red-600: hsl(4, 90%, 47%);
+$colour-red-700: hsl(4, 90%, 35%);
+$colour-red-800: hsl(4, 90%, 23%);
+$colour-red-900: hsl(4, 90%, 12%);
+$colour-red-950: hsl(2, 87%, 6%);
+
+$colours: (
+	'base': (
+		'white': $colour-base-white,
+		'black': $colour-base-black,
+	),
+	'blue': (
+		'50': $colour-sea-blue-50,
+		'100': $colour-sea-blue-100,
+		'200': $colour-sea-blue-200,
+		'300': $colour-sea-blue-300,
+		'400': $colour-sea-blue-400,
+		'500': $colour-sea-blue-500,
+		'600': $colour-sea-blue-600,
+		'700': $colour-sea-blue-700,
+		'800': $colour-sea-blue-800,
+		'900': $colour-sea-blue-900,
+		'950': $colour-sea-blue-950,
+	),
+	'navy': (
+		'50': $colour-navy-50,
+		'100': $colour-navy-100,
+		'200': $colour-navy-200,
+		'300': $colour-navy-300,
+		'400': $colour-navy-400,
+		'500': $colour-navy-500,
+		'600': $colour-navy-600,
+		'700': $colour-navy-700,
+		'800': $colour-navy-800,
+		'900': $colour-navy-900,
+		'950': $colour-navy-950,
+	),
+	'grey': (
+		'50': $colour-greyscale-50,
+		'100': $colour-greyscale-100,
+		'200': $colour-greyscale-200,
+		'300': $colour-greyscale-300,
+		'400': $colour-greyscale-400,
+		'500': $colour-greyscale-500,
+		'600': $colour-greyscale-600,
+		'700': $colour-greyscale-700,
+		'800': $colour-greyscale-800,
+		'900': $colour-greyscale-900,
+		'950': $colour-greyscale-950,
+	),
+	'light': (
+		'50': $colour-lights-50,
+		'100': $colour-lights-100,
+		'200': $colour-lights-200,
+		'300': $colour-lights-300,
+		'400': $colour-lights-400,
+		'500': $colour-lights-500,
+		'600': $colour-lights-600,
+		'700': $colour-lights-700,
+		'800': $colour-lights-800,
+		'900': $colour-lights-900,
+		'950': $colour-lights-950,
+	),
+	'green': (
+		'50': $colour-green-50,
+		'100': $colour-green-100,
+		'200': $colour-green-200,
+		'300': $colour-green-300,
+		'400': $colour-green-400,
+		'500': $colour-green-500,
+		'600': $colour-green-600,
+		'700': $colour-green-700,
+		'800': $colour-green-800,
+		'900': $colour-green-900,
+		'950': $colour-green-950,
+	),
+	'yellow': (
+		'50': $colour-yellow-50,
+		'100': $colour-yellow-100,
+		'200': $colour-yellow-200,
+		'300': $colour-yellow-300,
+		'400': $colour-yellow-400,
+		'500': $colour-yellow-500,
+		'600': $colour-yellow-600,
+		'700': $colour-yellow-700,
+		'800': $colour-yellow-800,
+		'900': $colour-yellow-900,
+		'950': $colour-yellow-950,
+	),
+	'red': (
+		'50': $colour-red-50,
+		'100': $colour-red-100,
+		'200': $colour-red-200,
+		'300': $colour-red-300,
+		'400': $colour-red-400,
+		'500': $colour-red-500,
+		'600': $colour-red-600,
+		'700': $colour-red-700,
+		'800': $colour-red-800,
+		'900': $colour-red-900,
+		'950': $colour-red-950,
+	),
+);

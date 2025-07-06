@@ -1,9 +1,39 @@
-// -----------------------------------------------------------------------------
-// _fonts.scss
-// This file contains all @font-face declarations, if any.
-// -----------------------------------------------------------------------------
+@use '../abstracts';
+
+$fontPath: '/assets/fonts/';
 
 @font-face {
+	font-family: abstracts.$font;
+	src: url('#{$fontPath}Elza-Regular.woff2') format('woff2'),
+	url('#{$fontPath}Elza-Regular.woff') format('woff');
+	font-weight: abstracts.$font-weight-regular;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: abstracts.$font;
+	src: url('#{$fontPath}Elza-Medium.woff2') format('woff2'),
+	url('#{$fontPath}Elza-Medium.woff') format('woff');
+	font-weight: abstracts.$font-weight-medium;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: abstracts.$font;
+	src: url('#{$fontPath}Elza-Semibold.woff2') format('woff2'),
+	url('#{$fontPath}Elza-Semibold.woff') format('woff');
+	font-weight: abstracts.$font-weight-semibold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: abstracts.$font;
+	src: url('#{$fontPath}Elza-Bold.woff2') format('woff2'),
+	url('#{$fontPath}Elza-Bold.woff') format('woff');
+	font-weight: abstracts.$font-weight-bold;
 	font-style: normal;
 	font-display: swap;
 }

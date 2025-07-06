@@ -29,9 +29,13 @@
 <style lang="scss">
 	.footer {
 		$self: &;
+
+		--_footer-bg: var(--token-surface-dark);
+
 		position: relative;
 		display: block;
 		overflow: hidden;
-		background-color: var(--colour-foreground);
+		background-color: var(--_footer-bg);
+		color: var(--_token-text-negative);
 	}
 </style>

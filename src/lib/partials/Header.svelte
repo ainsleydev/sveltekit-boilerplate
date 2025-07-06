@@ -1,7 +1,6 @@
 <script lang="ts">
 	let scrolled = false;
 
-	// Add a scrolled class to the header after a certain amount.
 	const scroll = (e: Event) => {
 		const window = e.currentTarget as Window;
 		window.scrollY > 80 ? (scrolled = true) : (scrolled = false);
@@ -14,18 +13,16 @@
 	@component
 
 	Display the header of the website which renders menus, navigation & logo elements.
-	TODO: Headers are very unique to each website, and therefore only resets have been applied.
-
 -->
-<header class="header" class:header-scrolled={scrolled}>
-	<div class="header-container">
-		<figure class="header-logo">
+<header class="header" class:header--scrolled={scrolled}>
+	<div class="header__container">
+		<figure class="header__logo">
 			<figcaption>Logo</figcaption>
 		</figure>
-		<input class="hamburger-checkbox" type="checkbox" id="hamburger-check" />
-		<div class="hamburger">
-			<label for="hamburger-check" class="hamburger-box" aria-label="Open Navigation">
-				<span class="hamburger-inner" />
+		<input class="header__hamburger-checkbox" type="checkbox" id="hamburger-check" />
+		<div class="header__hamburger">
+			<label for="hamburger-check" class="header__hamburger-box" aria-label="Open Navigation">
+				<span class="header__hamburger-inner"></span>
 			</label>
 		</div>
 	</div>
@@ -41,24 +38,44 @@
 		height: 70px;
 		width: 100vw;
 		padding: 0 15px;
-		background-color: var(--colour-foreground);
+		background-color: var(--token-surface-dark);
 		color: var(--colour-background);
 		z-index: 99999;
 		transition: background-color 300ms ease, box-shadow 300ms ease;
 		will-change: background-color, box-shadow;
 
-		&-container {
+		&__container {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			height: 100%;
 		}
 
-		&-logo {
+		&__logo {
 			z-index: 999999;
+			color: var(--token-text-negative);
 		}
 
-		&-scrolled {
+		&__hamburger-checkbox {
+			display: none;
+		}
+
+		&__hamburger {
+			display: flex;
+		}
+
+		&__hamburger-box {
+			cursor: pointer;
+		}
+
+		&__hamburger-inner {
+			display: block;
+			width: 25px;
+			height: 2px;
+			background-color: currentColor;
+		}
+
+		&--scrolled {
 			background-color: var(--colour-foreground);
 			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.23);
 		}

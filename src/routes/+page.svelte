@@ -81,12 +81,14 @@
 			<!-- Button -->
 			<Column>
 				<Button label="Label">Button</Button>
+				<Button label="Label" colour="secondary">Button</Button>
+				<Button label="Label" colour="grey">Button</Button>
 			</Column>
 			<Column>
 				<!-- Link -->
 				<!--				<Link>This is my title</Link>-->
 				<!-- Tags -->
-				<Group size="large" bottom style="background: red;">
+				<Group size="large" bottom>
 					<Tag>Tag Component</Tag>
 				</Group>
 				<!-- Alerts -->

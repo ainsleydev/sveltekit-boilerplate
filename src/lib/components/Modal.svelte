@@ -1,8 +1,12 @@
 <script lang="ts"></script>
 
-<div class="modal" />
+<div class="modal">
+	Modal
+</div>
 
 <style lang="scss">
+	@use '../scss/abstracts' as a;
+
 	.modal {
 		position: fixed;
 		inset: 0;

@@ -21,6 +21,8 @@
 </form>
 
 <style lang="scss">
+	@use '../scss/abstracts' as a;
+
 	.form {
 		position: relative;
 		display: block;
@@ -39,17 +41,17 @@
 
 	::placeholder {
 		// Chrome, Firefox, Opera, Safari 10.1+
-		color: var(--colour-copy);
+		color: var(--token-text-body);
 		opacity: 1; /* Firefox */
 	}
 
 	:-ms-input-placeholder {
 		// Internet Explorer 10-11
-		color: var(--colour-copy);
+		color: var(--token-text-body);
 	}
 
 	::-ms-input-placeholder {
 		// Microsoft Edge
-		color: var(--colour-copy);
+		color: var(--token-text-body);
 	}
 </style>

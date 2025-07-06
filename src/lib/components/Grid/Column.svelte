@@ -16,27 +16,41 @@
 </div>
 
 <style lang="scss">
+	@use 'sass:math';
+	@use '../../scss/abstracts' as a;
+
 	[class*='col-'] {
 		position: relative;
 		width: 100%;
-		padding-left: $gap-width;
-		padding-right: $gap-width;
+		padding-left: a.$grid-gap;
+		padding-right: a.$grid-gap;
 	}
 
-	@include media-mob-down {
-		.col-6 {
-			&:nth-child(odd) {
-				padding-right: calc(var(--grid-gap-width) / 2);
-			}
+	%column-props {
+		position: relative;
+		width: 100%;
+		padding-inline: a.$grid-gap;
 
-			&:nth-child(even) {
-				padding-left: calc(var(--grid-gap-width) / 2);
+		@include a.mq-max(mob) {
+			padding-inline: 7px;
+		}
+	}
+
+	@each $modifier, $breakpoint in a.$grid-properties {
+		.col#{$modifier}-auto {
+			@extend %column-props;
+		}
+
+		@for $i from 1 through a.$grid-columns {
+			.col#{$modifier}-#{$i} {
+				@extend %column-props;
 			}
 		}
 	}
 
-	@each $modifier, $breakpoint in $grid-properties {
-		@include create-mediaquery($breakpoint) {
+	@each $modifier, $breakpoint in a.$grid-properties {
+		@include a.create-media-query($breakpoint) {
+
 			// Columns
 			.col#{$modifier}-auto {
 				flex: 0 0 auto;
@@ -44,9 +58,9 @@
 				max-width: 100%;
 			}
 
-			@for $i from 1 through $grid-columns {
+			@for $i from 1 through a.$grid-columns {
 				.col#{$modifier}-#{$i} {
-					width: calc(100 / ($grid-columns / ($i * 1%)));
+					width: #{math.div(100, math.div(a.$grid-columns, $i)) * 1%};
 				}
 			}
 
@@ -55,10 +69,23 @@
 				margin-left: 0;
 			}
 
-			@for $i from 1 through $grid-columns {
+			@for $i from 1 through a.$grid-columns {
 				.offset#{$modifier}-#{$i} {
-					margin-left: calc(100 / ($grid-columns / ($i * 1%)));
+					margin-left: #{math.div(100, math.div(a.$grid-columns, $i)) * 1%};
 				}
+			}
+		}
+	}
+
+
+	@include a.mq-max(tab) {
+		.col-6 {
+			&:nth-child(odd) {
+				padding-right: calc(var(--grid-gap-width) / 2);
+			}
+
+			&:nth-child(even) {
+				padding-left: calc(var(--grid-gap-width) / 2);
 			}
 		}
 	}

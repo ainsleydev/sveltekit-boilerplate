@@ -1,41 +1,20 @@
 /**
  * app.scss
- * Imports all files from abstracts, base, components, layout, pages & vendor.
  *
  * @author Ainsley Clark
  * @author URL:   https://ainsley.dev
  * @author Email: hello@ainsley.dev
  */
 
-/*  ====================
-    Abstracts
-    ==================== */
-@import 'abstracts/functions';
-@import 'abstracts/mixins';
-@import 'abstracts/variables';
+@use "sass:meta";
 
-/* ====================
-    Vendor
-    ==================== */
-@import 'node_modules/normalize.css/normalize';
+@layer reset {
+	@import 'normalize.css/normalize.css';
+}
 
-/* ====================
-    Base
-    ==================== */
-@import 'base/global';
-@import 'base/fonts';
-@import 'base/reset';
+@layer vendor {
+}
 
-/* ====================
-    Generic
-    ==================== */
-@import 'generic/typography';
-@import 'generic/colours';
-@import 'generic/spacing';
-
-/* ====================
-    Grid
-    ==================== */
-@import 'grid/flex';
-@import 'grid/order';
-@import 'grid/display';
+@import 'abstracts/index';
+@import 'base/index';
+@import 'util/index';

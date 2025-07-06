@@ -1,0 +1,17 @@
+@use '../abstracts' as a;
+
+.flex {
+
+	&-wrap {
+		flex-wrap: wrap;
+	}
+
+	&-nowrap {
+		flex-wrap: nowrap;
+	}
+
+	&-wrap-reverse {
+		flex-wrap: wrap-reverse;
+	}
+}
+

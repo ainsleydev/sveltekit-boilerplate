@@ -1,0 +1,35 @@
+$grid-columns: 12;
+$grid-gap: 1rem;
+
+$grid-breakpoint-mob: 568;
+$grid-breakpoint-tab: 768;
+$grid-breakpoint-desk: 1024;
+$grid-breakpoint-desk-large: 1408;
+$grid-breakpoint-hd: 1600;
+
+$breakpoints: (
+	mob: $grid-breakpoint-mob,
+	tab: $grid-breakpoint-tab,
+	desk: $grid-breakpoint-desk,
+	desk-large: $grid-breakpoint-desk-large,
+	hd: $grid-breakpoint-hd,
+);
+
+$grid-properties: (
+	'': 0,
+	'-mob': $grid-breakpoint-mob,
+	'-tab': $grid-breakpoint-tab,
+	'-desk': $grid-breakpoint-desk,
+	'-desk-large': $grid-breakpoint-desk-large,
+	'-hd': $grid-breakpoint-hd,
+);
+
+@mixin create-media-query($breakpoint) {
+	@if $breakpoint == 0 {
+		@content;
+	} @else {
+		@media (min-width: $breakpoint * 1px) {
+			@content;
+		}
+	}
+}

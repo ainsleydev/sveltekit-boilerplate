@@ -12,3 +12,7 @@ declare global {
 }
 
 export {};
+
+// Unplugin icons
+import type * as Icons from 'unplugin-icons/types/svelte';
+export default Icons;

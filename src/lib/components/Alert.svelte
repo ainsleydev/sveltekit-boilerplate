@@ -37,7 +37,7 @@
 		<slot name="icon" />
 		<slot name="text" />
 		{#if dismiss}
-			<button class="alert-dismiss" on:click={hide} aria-label="Close">
+			<button class="alert__dismiss" on:click={hide} aria-label="Close">
 				<IconClose class="alert-dismiss" style="font-size: 1.2rem;" />
 			</button>
 		{/if}
@@ -45,28 +45,38 @@
 {/if}
 
 <style lang="scss">
+	@use '../scss/abstracts' as a;
+
 	.alert {
+		--_alert-bg-colour: transparent;
+		--_alert-border-colour: var(--token-border-default);
+		--_alert-text-colour: var(--token-text-body);
+		--_alert-icon-colour: var(--token-icon-dark);
+		--_alert-border-radius: #{a.$border-radius-6};
+
 		$self: &;
 		position: relative;
 		display: flex;
 		align-items: center;
-		background-color: var(--background, var(--colour-foreground));
+		background-color: var(--_alert-bg-colour);
+		border: 1px solid var(--_alert-border-colour);
 		width: 100%;
 		padding: 1rem;
-		border-radius: 4px;
+		border-radius: var(--_alert-border-radius);
+		margin-bottom: 0.5rem;
 
 		:global([slot='text']) {
-			color: #fff;
+			color: var(--_alert-text-colour);
 			margin-bottom: 0;
 			line-height: 1.3;
 		}
 
 		:global([slot='icon']) {
-			color: #fff;
+			color: var(--_alert-icon-colour);
 			margin-right: 10px;
 		}
 
-		&-dismiss {
+		&__dismiss {
 			cursor: pointer;
 			margin-left: auto;
 		}

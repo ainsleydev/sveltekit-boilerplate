@@ -1,8 +1,3 @@
-// -----------------------------------------------------------------------------
-// _reset.scss
-// This file contains the styles to reset elements to a blank state.
-// -----------------------------------------------------------------------------
-
 figure {
 	vertical-align: baseline;
 	margin: 0;
@@ -18,21 +13,21 @@ figure {
 	color: transparent;
 }
 
-button {
-	width: auto;
-	margin: 0;
-	padding: 0;
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+img,
+source,
+picture {
 	border: none;
-	overflow: visible;
-	background: transparent;
-	color: inherit;
-	font: inherit;
-	line-height: normal;
-	user-select: none;
-	cursor: pointer;
-	-webkit-font-smoothing: inherit;
-	-moz-osx-font-smoothing: inherit;
-	-webkit-appearance: none;
+	outline: none;
 }
 
 ul,
@@ -42,9 +37,16 @@ menu {
 	list-style-type: none;
 }
 
+button {
+	background: none;
+	border: none;
+}
+
 fieldset {
 	border: none;
+	margin: 0;
 	padding: 0;
+	min-inline-size: auto;
 }
 
 details summary::-webkit-details-marker {

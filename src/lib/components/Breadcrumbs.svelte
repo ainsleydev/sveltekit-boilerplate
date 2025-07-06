@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+    import { page } from '$app/state';
 
 	export let separator = '/';
 
@@ -11,7 +11,7 @@
 
 	$: {
 		// Remove zero-length tokens.
-		const tokens = $page.url.pathname.split('/').filter((t) => t !== '');
+		const tokens = page.url.pathname.split('/').filter((t) => t !== '');
 
 		// Create { label, href, active } pairs for each token.
 		let tokenPath = '';
@@ -21,7 +21,7 @@
 			return {
 				label: t,
 				href: tokenPath,
-				active: $page.url.pathname.split('/').pop() === tokenPath.replace('/', ''),
+				active: page.url.pathname.split('/').pop() === tokenPath.replace('/', ''),
 			};
 		});
 
@@ -43,21 +43,22 @@
     ```
 -->
 <nav class="breadcrumbs" aria-label="breadcrumb">
-	<ol class="breadcrumbs-list">
+	<ol class="breadcrumbs__list">
 		{#each crumbs as c, i}
 			<li
-				class="breadcrumbs-item"
+				class="breadcrumbs__item"
 				itemprop="itemListElement"
 				itemscope
 				itemtype="https://schema.org/ListItem"
 			>
-				<a class="breadcrumbs-link" href={c.href} class:active={c.active} itemprop="item">
-					<span itemprop="name">
-						{c.label}
-					</span>
-					<span class="breadcrumbs-separator">
-						{separator}
-					</span>
+				<a
+					class="breadcrumbs__link"
+					class:breadcrumbs__link--active={c.active}
+					href={c.href}
+					itemprop="item"
+				>
+					<span itemprop="name">{c.label}</span>
+					<span class="breadcrumbs__separator">{separator}</span>
 				</a>
 				<meta itemprop="position" content={(i + 1).toString()} />
 			</li>
@@ -66,8 +67,9 @@
 </nav>
 
 <style lang="scss">
+	@use '../scss/abstracts' as a;
+
 	.breadcrumbs {
-		$self: &;
 		position: relative;
 		overflow: clip;
 
@@ -75,7 +77,7 @@
 			display: none;
 		}
 
-		&-list {
+		&__list {
 			width: 100%;
 			display: flex;
 			flex-wrap: nowrap;
@@ -84,7 +86,7 @@
 			overflow-x: scroll;
 		}
 
-		&-item {
+		&__item {
 			display: flex;
 			align-items: center;
 			padding: 6px 0;
@@ -93,30 +95,35 @@
 				margin-left: 0;
 			}
 
-			&:last-child #{$self}-separator {
+			&:last-child .breadcrumbs__separator {
 				display: none;
 			}
 		}
 
-		&-link {
+		&__link {
 			white-space: nowrap;
 			font-size: 1rem;
 			font-weight: 500;
+
+			&--active {
+				background: green;
+				// Add active styling here if needed
+			}
 		}
 
-		&-separator {
+		&__separator {
 			display: inline-block;
 			color: var(--colour-primary);
 			margin-left: 10px;
 			margin-right: 10px;
 		}
 
-		@include media-tab {
-			&-item {
+		@include a.mq(tab) {
+			&__item {
 				padding: 0;
 			}
 
-			&-link {
+			&__link {
 				max-width: 250px;
 				overflow: hidden;
 				text-overflow: ellipsis;

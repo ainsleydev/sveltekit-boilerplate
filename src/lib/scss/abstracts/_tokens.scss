@@ -1,0 +1,80 @@
+@use 'sass:map';
+@use 'colours' as *;
+
+$header-height: 80px;
+$header-z-index: 999;
+
+$surface-default: $colour-base-white;
+$surface-grey: $colour-greyscale-50;
+$surface-primary: $colour-sea-blue-500;
+$surface-dark: $colour-navy-500;
+$surface-light: $colour-lights-400;
+$surface-secondary: $colour-sea-blue-50;
+$surface-success: $colour-green-50;
+$surface-warning: $colour-yellow-50;
+$surface-error: $colour-red-50;
+
+$border-default: $colour-greyscale-200;
+$border-primary: $colour-sea-blue-500;
+$border-dark: $colour-navy-500;
+$border-success: $colour-green-500;
+$border-warning: $colour-yellow-600;
+$border-error: $colour-red-500;
+
+$text-heading: $colour-navy-500;
+$text-body: $colour-greyscale-500;
+$text-subtitle: $colour-sea-blue-800;
+$text-action: $colour-sea-blue-500;
+$text-negative: $colour-base-white;
+$text-success: $colour-green-800;
+$text-warning: $colour-yellow-800;
+$text-error: $colour-red-800;
+
+$icon-primary: $colour-sea-blue-500;
+$icon-grey: $colour-greyscale-500;
+$icon-dark: $colour-navy-500;
+$icon-negative: $colour-base-white;
+$icon-success: $colour-green-500;
+$icon-warning: $colour-yellow-600;
+$icon-error: $colour-red-500;
+
+$tokens: (
+	'surface': (
+		'default': $surface-default,
+		'grey': $surface-grey,
+		'primary': $surface-primary,
+		'dark': $surface-dark,
+		'light': $surface-light,
+		'secondary': $surface-secondary,
+		'success': $surface-success,
+		'warning': $surface-warning,
+		'error': $surface-error,
+	),
+	'border': (
+		'default': $border-default,
+		'primary': $border-primary,
+		'dark': $border-dark,
+		'success': $border-success,
+		'warning': $border-warning,
+		'error': $border-error,
+	),
+	'text': (
+		'heading': $text-heading,
+		'body': $text-body,
+		'subtitle': $text-subtitle,
+		'action': $text-action,
+		'negative': $text-negative,
+		'success': $text-success,
+		'warning': $text-warning,
+		'error': $text-error,
+	),
+	'icon': (
+		'primary': $icon-primary,
+		'grey': $icon-grey,
+		'dark': $icon-dark,
+		'negative': $icon-negative,
+		'success': $icon-success,
+		'warning': $icon-warning,
+		'error': $icon-error,
+	),
+);

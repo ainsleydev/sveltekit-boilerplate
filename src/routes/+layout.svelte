@@ -19,10 +19,12 @@
 </div>
 
 <style lang="scss">
+	@use '../lib/scss/abstracts' as a;
+
 	.wrapper {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		@include full-height;
+		//@include a.full-height;
 	}
 </style>

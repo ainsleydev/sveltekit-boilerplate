@@ -1,0 +1,202 @@
+@use '../abstracts/mixins';
+@use '../abstracts/functions';
+
+@layer default {
+
+	// Global
+	// =========================================================================
+	html,
+	body {
+		font-size: 100%;
+		font-weight: normal;
+		color: var(--token-text-body);
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p {
+		position: relative;
+		margin: 0;
+		color: var(--colour-foreground);
+	}
+
+	// Headings
+	// =========================================================================
+
+	h1,
+	.heading-1,
+	h2,
+	.heading-2,
+	h3,
+	.heading-3,
+	h4,
+	.heading-4,
+	h5,
+	.heading-5,
+	h6,
+	.heading-6 {
+		display: block;
+		color: var(--token-text-heading);
+		font-weight: var(--font-weight-bold);
+	}
+
+	@mixin h1 {
+		margin-bottom: 1.4rem;
+		line-height: 1.15;
+		@include mixins.fluid-type(34px, 49px);
+	}
+
+	h1,
+	.heading-1 {
+		@include h1;
+	}
+
+	@mixin h2 {
+		margin-bottom: 1.1rem;
+		line-height: 1.15;
+		@include mixins.fluid-type(31px, 41px);
+	}
+
+	h2,
+	.heading-2 {
+		@include h2;
+	}
+
+	@mixin h3 {
+		margin-bottom: 0.6rem;
+		line-height: 1.3;
+		@include mixins.fluid-type(28px, 35px);
+	}
+
+	h3,
+	.heading-3 {
+		@include h3;
+	}
+
+	@mixin h4 {
+		margin-bottom: 0.4rem;
+		line-height: 1.35;
+		@include mixins.fluid-type(26px, 30px);
+	}
+
+	h4,
+	.heading-4 {
+		@include h4;
+	}
+
+	@mixin h5 {
+		margin-bottom: 0.9rem;
+		line-height: 1.3;
+		@include mixins.fluid-type(22px, 25px);
+	}
+
+	h5,
+	.heading-5 {
+		@include h5;
+	}
+
+	@mixin h6 {
+		margin-bottom: 0.5rem;
+		line-height: 1.3;
+		@include mixins.fluid-type(19px, 21px);
+	}
+
+	h6,
+	.heading-6 {
+		@include h6;
+	}
+
+	// Paragraph
+	// =========================================================================
+
+	p {
+		color: var(--token-text-body);
+		font-size: var(--type-paragraph-size);
+		font-weight: var(--font-weight-regular);
+		margin-bottom: 1rem;
+		line-height: 2;
+
+		&.lead {
+			font-size: 18px;
+			line-height: 1.8;
+
+			&-max-width {
+				max-width: 60ch;
+			}
+		}
+	}
+
+	// Lists
+	// =========================================================================
+
+	ul,
+	ol {
+
+		li {
+			color: var(--colour-copy);
+			font-size: var(--type-paragraph-size);
+			margin-bottom: 10px;
+		}
+	}
+
+	// Links
+	// =========================================================================
+
+	.link,
+	a {
+		font-size: inherit;
+		color: var(--token-text-action);
+		font-weight: var(--font-weight-medium);
+		transition: color 150ms ease;
+		will-change: color;
+		text-decoration: underline;
+
+		&:hover {
+			color: var(--colour-green-600);
+		}
+	}
+
+	// Small
+	// =========================================================================
+
+	small {
+		color: inherit;
+		display: block;
+		font-size: functions.px-to-rem(14);
+		line-height: 1.6;
+	}
+
+	.tiny {
+		font-size: functions.px-to-rem(13);
+		color: inherit;
+	}
+
+	// Properties
+	// =========================================================================
+
+	strong {
+		font-weight: var(--font-weight-bold);
+		color: var(--token-text-heading);
+	}
+
+	// Selection Color
+	// =========================================================================
+
+	::selection {
+		background: var(--token-surface-primary);
+		color: var(--token-text-negative);
+	}
+
+	::-moz-selection {
+		background: var(--token-surface-primary);
+		color: var(--token-text-negative);
+	}
+
+	// Mods
+	// =========================================================================
+
+}

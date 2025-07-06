@@ -51,7 +51,7 @@
 <div class="collapse-item">
 	<!-- Header -->
 	<button
-		class="collapse-item-header"
+		class="collapse-item__header"
 		on:click={onClick}
 		on:mouseenter={() => (isHovered = true)}
 		on:mouseleave={() => (isHovered = false)}
@@ -59,25 +59,25 @@
 		on:blur={() => (isFocused = false)}
 	>
 		<span
-			class="collapse-item-title"
-			class:collapse-item-header-focused={isHovered || isFocused}
+			class="collapse-item__title"
+			class:collapse-item__title--focused={isHovered || isFocused}
 		>
 			<slot name="title" />
 		</span>
-		<span class="collapse-item-icon" class:collapse-item-rotate={isCurrentActive}>
+		<span class="collapse-item__icon" class:collapse-item__icon--rotate={isCurrentActive}>
 			<IconChevron style="font-size: 1.6rem;" />
 		</span>
 	</button>
 	<!-- Content -->
 	{#if isCurrentActive}
-		<div class="collapse-item-content" transition:slide>
+		<div class="collapse-item__content" transition:slide>
 			<slot />
 		</div>
 	{/if}
 </div>
 
 <style lang="scss">
-	.collapse-item-title :global(*) {
+	.collapse-item__title :global(*) {
 		margin-bottom: 0;
 	}
 
@@ -89,7 +89,7 @@
 		-webkit-appearance: none;
 		appearance: none;
 
-		&-header {
+		&__header {
 			width: 100%;
 			display: flex;
 			justify-content: space-between;
@@ -100,17 +100,21 @@
 			padding: 1.6rem 0;
 		}
 
-		&-content {
+		&__content {
 			padding-bottom: 1.6rem;
 		}
 
-		&-icon {
+		&__icon {
 			transition: transform 300ms ease;
 			will-change: transform;
 		}
 
-		&-rotate {
+		&__icon--rotate {
 			transform: rotate(180deg);
+		}
+
+		&__title--focused {
+			text-decoration: underline;
 		}
 	}
 </style>

@@ -3,19 +3,13 @@
  */
 import adapter from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
+	// Consult https://svelte.dev/docs/kit/integrations
 	// for more information about preprocessors
-	preprocess: preprocess({
-		scss: {
-			prependData: `
-			@import './src/lib/scss/abstracts/_variables.scss';
-			@import './src/lib/scss/abstracts/_mixins.scss';`,
-		},
-		preserve: ['ld+json'],
-	}),
+	preprocess: [vitePreprocess()],
 	kit: {
 		// Adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
 		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
@@ -27,6 +21,10 @@ const config = {
 			precompress: false,
 			strict: true,
 		}),
+	},
+	onwarn: (warning, handler) => {
+		if (warning.code === 'css-unused-selector') return;
+		handler(warning);
 	},
 };
 
